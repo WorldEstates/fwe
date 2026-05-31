@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FWE — Francesco World Estates</title>
+<meta name="description" content="Consulente immobiliare internazionale. Vendita, affitti, investimenti a Milano, Roma, Marbella, Ibiza, Dubai, Abu Dhabi. Dal 1980.">
+<meta property="og:title" content="FWE — Francesco World Estates">
+<meta property="og:description" content="Il tuo partner di fiducia per il mercato immobiliare internazionale.">
+<meta property="og:image" content="https://static.wixstatic.com/media/cbc6a9_7bb43e1715034d73adac990cb6759a6a~mv2.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0A1520;--navy2:#0F1E2E;--navy3:#162438;--navy4:#1C2D42;
+  --gold:#C9A84C;--gold2:#E8C97A;--gold3:#F5E4B0;--gold-dim:#8A6320;
+  --cream:#F7F3EC;--white:#FFFFFF;
+  --text:#E8E4DC;--muted:rgba(232,228,220,0.55);--muted2:rgba(232,228,220,0.35);
+  --border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.35);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* ── TYPOGRAPHY ─────────────────────────── */
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.2}
+
+/* ── NAVBAR ─────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 3rem;height:72px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+nav.scrolled{background:rgba(10,21,32,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);letter-spacing:.08em}
+.nav-logo span{color:var(--white);font-weight:200}
+.nav-tagline{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--border2);padding-left:14px}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:transparent;border:1px solid var(--border2);color:var(--gold);padding:9px 22px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
+.nav-cta:hover{background:var(--gold);color:var(--navy)}
+.nav-mob{display:none;cursor:pointer;flex-direction:column;gap:5px}
+.nav-mob span{display:block;width:24px;height:1px;background:var(--gold);transition:all .3s}
+
+/* ── HERO ───────────────────────────────── */
+.hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0A1520 0%,#0F2035 40%,#1a2d40 100%)}
+.hero-pattern{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right, rgba(10,21,32,0.9) 0%, rgba(10,21,32,0.4) 60%, rgba(10,21,32,0.1) 100%)}
+.hero-img{position:absolute;right:0;top:0;bottom:0;width:60%;object-fit:cover;opacity:.35}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 3rem;width:100%}
+.hero-eyebrow{font-size:11px;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(42px,6vw,82px);font-weight:300;color:var(--white);margin-bottom:.5rem;line-height:1.05}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:clamp(16px,2vw,22px);font-weight:200;color:var(--muted);margin-bottom:2.5rem;max-width:560px;font-family:'Cormorant Garamond',serif;font-style:italic}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:14px 34px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--white);padding:13px 33px;font-family:'Jost',sans-serif;font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.hero-scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--gold));animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* ── CITIES STRIP ───────────────────────── */
+.cities-strip{background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 3rem;display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none}
+.cities-strip::-webkit-scrollbar{display:none}
+.city-item{color:var(--muted);font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;padding:0 2rem;border-right:1px solid var(--border);cursor:pointer;transition:color .2s;text-decoration:none}
+.city-item:first-child{padding-left:0}
+.city-item:last-child{border-right:none}
+.city-item:hover{color:var(--gold)}
+
+/* ── SECTIONS ───────────────────────────── */
+section{padding:6rem 0}
+.container{max-width:1200px;margin:0 auto;padding:0 3rem}
+.section-eyebrow{font-size:11px;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:12px}
+.section-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+.section-title{font-size:clamp(30px,4vw,52px);font-weight:300;color:var(--white);margin-bottom:1rem}
+.section-title em{color:var(--gold);font-style:italic}
+.section-sub{font-size:16px;color:var(--muted);max-width:600px;font-weight:300;line-height:1.8}
+
+/* ── ABOUT ──────────────────────────────── */
+.about{background:var(--navy)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.stat{border-left:1px solid var(--border2);padding-left:1.5rem}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--gold);line-height:1}
+.stat-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.about-text{font-size:16px;color:var(--muted);line-height:1.9;font-weight:300}
+.about-text p{margin-bottom:1.25rem}
+.about-signature{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:var(--gold);margin-top:2rem}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:3/4;object-fit:cover;opacity:.8}
+.about-img-frame{position:absolute;top:-20px;right:-20px;bottom:20px;left:20px;border:1px solid var(--border2);z-index:-1}
+
+/* ── SERVICES ───────────────────────────── */
+.services{background:var(--navy2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
+.service-card{background:var(--navy2);padding:2.5rem;transition:background .2s;cursor:pointer}
+.service-card:hover{background:var(--navy3)}
+.service-icon{font-size:32px;margin-bottom:1.25rem;display:block}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);letter-spacing:.12em;margin-bottom:.75rem}
+.service-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:.75rem}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.8;font-weight:300}
+.service-link{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:1.25rem;text-decoration:none;transition:gap .2s}
+.service-link:hover{gap:14px}
+
+/* ── DESTINATIONS ───────────────────────── */
+.destinations{background:var(--navy)}
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.dest-card{position:relative;overflow:hidden;aspect-ratio:4/5;cursor:pointer}
+.dest-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:brightness(.6)}
+.dest-card:hover img{transform:scale(1.06);filter:brightness(.75)}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,21,32,.9) 0%,rgba(10,21,32,.1) 60%)}
+.dest-content{position:absolute;bottom:0;left:0;right:0;padding:2rem}
+.dest-city{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--white);margin-bottom:4px}
+.dest-country{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.dest-card.featured{grid-row:span 2;aspect-ratio:auto}
+.dest-card.featured .dest-city{font-size:36px}
+
+/* ── PROCESS ────────────────────────────── */
+.process{background:var(--navy2)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;margin-top:4rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,var(--border2),var(--border2),transparent)}
+.step{text-align:center;position:relative}
+.step-num{width:56px;height:56px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);background:var(--navy2)}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white);margin-bottom:.5rem}
+.step-desc{font-size:12px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ── TESTIMONIAL ────────────────────────── */
+.testimonial{background:var(--navy);padding:5rem 0}
+.testimonial-inner{max-width:800px;margin:0 auto;text-align:center;padding:0 3rem}
+.quote-mark{font-family:'Cormorant Garamond',serif;font-size:120px;color:var(--gold);opacity:.15;line-height:.5;margin-bottom:1.5rem}
+.quote-text{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,30px);font-weight:300;font-style:italic;color:var(--white);line-height:1.6;margin-bottom:2rem}
+.quote-author{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+
+/* ── CONTACT ────────────────────────────── */
+.contact{background:var(--navy2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-top:4rem}
+.contact-info{display:flex;flex-direction:column;gap:2rem}
+.contact-item{display:flex;gap:1.25rem;align-items:flex-start}
+.contact-icon{font-size:20px;margin-top:2px;flex-shrink:0}
+.contact-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.contact-val{font-size:14px;color:var(--text);line-height:1.6}
+.contact-val a{color:var(--text);text-decoration:none;transition:color .2s}
+.contact-val a:hover{color:var(--gold)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);padding:12px 14px;font-family:'Jost',sans-serif;font-size:13px;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group select option{background:var(--navy3);color:var(--text)}
+
+/* ── FOOTER ─────────────────────────────── */
+footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold);font-weight:300;letter-spacing:.08em}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-social{display:flex;gap:1rem}
+.social-btn{width:36px;height:36px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;text-decoration:none;transition:all .2s}
+.social-btn:hover{border-color:var(--gold);color:var(--gold)}
+.footer-copy{width:100%;text-align:center;font-size:11px;color:var(--muted2);padding-top:2rem;border-top:1px solid var(--border);margin-top:1rem}
+
+/* ── MOBILE NAV ─────────────────────────── */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mob-menu.open{display:flex}
+.mob-menu a{color:var(--white);font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;text-decoration:none;transition:color .2s}
+.mob-menu a:hover{color:var(--gold)}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-img-wrap{display:none}
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .dest-card.featured{grid-row:auto;aspect-ratio:4/5}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .process-steps::before{display:none}
+}
+@media(max-width:768px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .nav-tagline{display:none}
+  .nav-mob{display:flex}
+  .hero-content{padding:0 1.5rem}
+  .container{padding:0 1.5rem}
+  section{padding:4rem 0}
+  .dest-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+  .cities-strip{padding:.85rem 1.5rem}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .process-steps{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">FWE<span></span></div>
+    <div class="nav-tagline">Francesco World Estates</div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">Chi Siamo</a>
+    <a href="#services">Servizi</a>
+    <a href="#destinations">Destinazioni</a>
+    <a href="#contact">Contatti</a>
+    <a href="#contact" class="nav-cta">Consulenza</a>
+  </div>
+  <div class="nav-mob" onclick="toggleMenu()" id="navMob">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="toggleMenu()">Chi Siamo</a>
+  <a href="#services" onclick="toggleMenu()">Servizi</a>
+  <a href="#destinations" onclick="toggleMenu()">Destinazioni</a>
+  <a href="#contact" onclick="toggleMenu()">Contatti</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-overlay"></div>
+  <img class="hero-img" src="https://static.wixstatic.com/media/cbc6a9_7bb43e1715034d73adac990cb6759a6a~mv2.jpg" alt="FWE Real Estate" onerror="this.style.display='none'">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Dal 1980 · Milano · International</div>
+    <h1>Il Mondo<br>è <em>Casa Tua</em></h1>
+    <p class="hero-sub">Il tuo partner di fiducia per il mercato immobiliare internazionale. Dall'attico di Milano alla villa di Marbella.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Inizia il tuo viaggio</a>
+      <a href="#services" class="btn-secondary">I nostri servizi</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scopri
+  </div>
+</section>
+
+<!-- CITIES STRIP -->
+<div class="cities-strip">
+  <a href="#destinations" class="city-item">Milano</a>
+  <a href="#destinations" class="city-item">Roma</a>
+  <a href="#destinations" class="city-item">Marbella</a>
+  <a href="#destinations" class="city-item">Ibiza</a>
+  <a href="#destinations" class="city-item">Francia</a>
+  <a href="#destinations" class="city-item">Dubai</a>
+  <a href="#destinations" class="city-item">Abu Dhabi</a>
+  <a href="#destinations" class="city-item">Oman</a>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">Chi Siamo</div>
+        <h2 class="section-title">Oltre 40 anni di<br><em>eccellenza immobiliare</em></h2>
+        <div class="about-text">
+          <p>Dal 1980, Francesco opera a Milano con professionalità e dinamicità nel campo dell'intermediazione di immobili residenziali, commerciali e turistici, sia nella compravendita che nella locazione.</p>
+          <p>Fornisce servizi e consulenza mirate, con passione, competenza, trasparenza e doti umane che portano alla fidelizzazione dei propri clienti, certi di avere un punto di riferimento in grado di risolvere ogni problema inerente la compravendita o la locazione di un immobile.</p>
+          <p>Oggi operiamo in Italia e nelle destinazioni più esclusive d'Europa e del Medio Oriente, portando la stessa dedizione e professionalità che ci ha resi un punto di riferimento da oltre quattro decenni.</p>
+        </div>
+        <div class="about-signature">Francesco</div>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Anni di esperienza</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">8</div>
+            <div class="stat-label">Destinazioni</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Clienti fidelizzati</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Servizi integrati</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-wrap">
+        <img class="about-img" src="https://static.wixstatic.com/media/cbc6a9_d3f8f94a7812485fac016ad3da2caf25f000.jpg" alt="Francesco World Estates" onerror="this.style.display='none'">
+        <div class="about-img-frame"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-eyebrow">I Nostri Servizi</div>
+    <h2 class="section-title">Un ecosistema<br><em>di eccellenza</em></h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏛</span>
+        <div class="service-num">01</div>
+        <div class="service-title">FR International Real Estate</div>
+        <div class="service-desc">L'agenzia immobiliare che da oltre 40 anni è un punto di riferimento in Italia ed Estero per chi vende, acquista o affitta. Residenziale, commerciale e turistico.</div>
+        <a href="#contact" class="service-link">Scopri di più →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💼</span>
+        <div class="service-num">02</div>
+        <div class="service-title">SRG Fin</div>
+        <div class="service-desc">Un'ampia scelta di prodotti di credito che si adattano a qualsiasi esigenza. Mutui, finanziamenti, fidejussioni. Soluzioni su misura per ogni progetto.</div>
+        <a href="#contact" class="service-link">Scopri di più →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📐</span>
+        <div class="service-num">03</div>
+        <div class="service-title">SRG Projects</div>
+        <div class="service-desc">Architettura ed urbanistica, ristrutturazioni, pratiche edilizie e di progettazione, perizie. Consulenti del Tribunale di Milano.</div>
+        <a href="#contact" class="service-link">Scopri di più →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚖️</span>
+        <div class="service-num">04</div>
+        <div class="service-title">SRG Investments — Aste e NPL</div>
+        <div class="service-desc">Ti aiutiamo a scegliere e valutare gli immobili che desideri e ti seguiamo fino all'asta per vincerla insieme. Gestione di saldo e stralcio.</div>
+        <a href="#contact" class="service-link">Scopri di più →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <div class="service-num">05</div>
+        <div class="service-title">SRG Design</div>
+        <div class="service-desc">Interior design su misura dello stile di vita del cliente o del tuo investimento. Dalla progettazione alla realizzazione, curiamo ogni dettaglio.</div>
+        <a href="#contact" class="service-link">Scopri di più →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔑</span>
+        <div class="service-num">06</div>
+        <div class="service-title">SRG Property Management</div>
+        <div class="service-desc">I nostri esperti identificano le migliori strategie di investimento immobiliare per ottimizzare il rendimento del capitale. Gestione completa del patrimonio.</div>
+        <a href="#contact" class="service-link">Scopri di più →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="container">
+    <div class="section-eyebrow">Le Nostre Destinazioni</div>
+    <h2 class="section-title">Dove il lusso<br><em>non ha confini</em></h2>
+    <div class="dest-grid">
+      <div class="dest-card featured">
+        <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=800&q=80" alt="Milano" onerror="this.style.background='#162438'">
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-city">Milano</div>
+          <div class="dest-country">Italia · Dal 1980</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Roma" onerror="this.style.background='#162438'">
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-city">Roma</div>
+          <div class="dest-country">Italia</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=80" alt="Marbella" onerror="this.style.background='#162438'">
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-city">Marbella</div>
+          <div class="dest-country">Spagna</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1601628828688-632f38a5a545?w=600&q=80" alt="Ibiza" onerror="this.style.background='#162438'">
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-city">Ibiza</div>
+          <div class="dest-country">Spagna</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" alt="Dubai" onerror="this.style.background='#162438'">
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-city">Dubai</div>
+          <div class="dest-country">Emirati Arabi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-eyebrow">Come Lavoriamo</div>
+    <h2 class="section-title">Il nostro<br><em>approccio</em></h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Ascolto</div>
+        <div class="step-desc">Comprendiamo le tue esigenze, il tuo stile di vita e i tuoi obiettivi di investimento.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Selezione</div>
+        <div class="step-desc">Identifichiamo le proprietà più adatte tra la nostra selezione esclusiva internazionale.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Consulenza</div>
+        <div class="step-desc">Ti affianchiamo in ogni fase con competenza legale, fiscale e tecnica.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Risultato</div>
+        <div class="step-desc">Raggiungiamo insieme il tuo obiettivo, con trasparenza e professionalità.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial">
+  <div class="testimonial-inner">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">Trasformiamo i tuoi sogni in realtà. Il nostro obiettivo è superare ogni tua aspettativa, ovunque tu decida di stabilire il tuo prossimo traguardo.</p>
+    <div class="quote-author">Francesco · FWE Francesco World Estates</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-eyebrow">Contatti</div>
+    <h2 class="section-title">Inizia il tuo<br><em>viaggio con noi</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Milano</div>
+            <div class="contact-val">Via Privata Procopio, 20146 Milano (MM Washington)<br>Piazza Giulio Cesare, 20149 Milano (MM Amendola · CityLife)</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Roma</div>
+            <div class="contact-val">Via Nazionale, 00184 Roma (MM Repubblica)</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Internazionale</div>
+            <div class="contact-val">Marbella · Ibiza · Dubai · Abu Dhabi · Oman</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Telefono</div>
+            <div class="contact-val">
+              <a href="tel:+390287177826">+39 02 87177826</a><br>
+              <a href="tel:+393477881500">+39 347 7881500</a><br>
+              <a href="tel:+34666758335">+34 666 758335 (Spain)</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:info@srgitalia.it">info@srgitalia.it</a></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome *</label>
+              <input type="text" placeholder="Mario Rossi" required>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="mario@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefono</label>
+              <input type="tel" placeholder="+39 ...">
+            </div>
+            <div class="form-group">
+              <label>Interesse</label>
+              <select>
+                <option value="">Seleziona...</option>
+                <option>Acquisto immobile</option>
+                <option>Vendita immobile</option>
+                <option>Affitto</option>
+                <option>Investimento</option>
+                <option>Property Management</option>
+                <option>Altro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Messaggio</label>
+            <textarea placeholder="Descrivici le tue esigenze..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem">Invia Richiesta</button>
+          <div id="formMsg" style="display:none;text-align:center;color:var(--gold);font-size:13px;margin-top:.75rem"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">FWE</div>
+    <div class="footer-links">
+      <a href="#about">Chi Siamo</a>
+      <a href="#services">Servizi</a>
+      <a href="#destinations">Destinazioni</a>
+      <a href="#contact">Contatti</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/francescorusso-realty" target="_blank" class="social-btn">in</a>
+      <a href="https://www.facebook.com/srgitalia/" target="_blank" class="social-btn">f</a>
+      <a href="https://instagram.com/fr.international.realty" target="_blank" class="social-btn">ig</a>
+      <a href="https://www.youtube.com/@fr.international.realty" target="_blank" class="social-btn">yt</a>
+    </div>
+    <div class="footer-copy">
+      © 1980–2026 FWE Francesco World Estates · Via Procopio 1, 20146 Milano · P.IVA 04113430963
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile menu
+function toggleMenu(){
+  const menu = document.getElementById('mobMenu');
+  const btn = document.getElementById('navMob');
+  menu.classList.toggle('open');
+  btn.classList.toggle('active');
+}
+
+// Form submit
+function submitForm(e){
+  e.preventDefault();
+  const msg = document.getElementById('formMsg');
+  msg.style.display = 'block';
+  msg.textContent = '✓ Messaggio inviato! La contatteremo al più presto.';
+  e.target.reset();
+  setTimeout(()=>msg.style.display='none', 5000);
+}
+
+// Smooth reveal on scroll
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(el=>{
+    if(el.isIntersecting){
+      el.target.style.opacity='1';
+      el.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.1});
+
+document.querySelectorAll('.service-card,.dest-card,.step,.stat,.contact-item').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(20px)';
+  el.style.transition='opacity .6s ease, transform .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
