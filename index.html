@@ -38,8 +38,10 @@ nav.scrolled{background:rgba(10,21,32,.95);backdrop-filter:blur(12px);border-bot
 .nav-links a:hover{color:var(--gold)}
 .nav-cta{background:transparent;border:1px solid var(--border2);color:var(--gold);padding:9px 22px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
 .nav-cta:hover{background:var(--gold);color:var(--navy)}
-.nav-mob{display:none;cursor:pointer;flex-direction:column;gap:5px}
-.nav-mob span{display:block;width:24px;height:1px;background:var(--gold);transition:all .3s}
+.lang-sel{display:flex;gap:4px;align-items:center;margin-left:1rem}
+.lang-btn{background:transparent;border:1px solid transparent;color:var(--muted);padding:4px 8px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:all .2s;border-radius:2px}
+.lang-btn:hover{color:var(--gold)}
+.lang-btn.active{border-color:var(--border2);color:var(--gold)}
 
 /* ── HERO ───────────────────────────────── */
 .hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden}
@@ -214,11 +216,16 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
     <div class="nav-tagline">Francesco Russo International Realty</div>
   </a>
   <div class="nav-links">
-    <a href="#about">Chi Siamo</a>
-    <a href="#services">Servizi</a>
-    <a href="#destinations">Destinazioni</a>
-    <a href="#contact">Contatti</a>
-    <a href="#contact" class="nav-cta">Consulenza</a>
+    <a href="#about" data-i18n="nav_about">Chi Siamo</a>
+    <a href="#services" data-i18n="nav_services">Servizi</a>
+    <a href="#destinations" data-i18n="nav_destinations">Destinazioni</a>
+    <a href="#contact" data-i18n="nav_contact">Contatti</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Consulenza</a>
+    <div class="lang-sel">
+      <button class="lang-btn active" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
   </div>
   <div class="nav-mob" onclick="toggleMenu()" id="navMob">
     <span></span><span></span><span></span>
@@ -240,17 +247,17 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
   <div class="hero-overlay"></div>
   <img class="hero-img" src="https://res.cloudinary.com/dyzholfwv/image/upload/v1780253554/fotogroup_ivpekz.png" alt="FR International Realty" style="opacity:.55;object-position:center" onerror="this.style.display='none'">
   <div class="hero-content">
-    <div class="hero-eyebrow">Dal 1980 · Milano · International</div>
-    <h1>Il Mondo<br>è <em>Casa Tua</em></h1>
-    <p class="hero-sub">Il tuo partner di fiducia per il mercato italiano ed internazionale. Dall'attico di Milano o Roma alla villa a Marbella o Ibiza.</p>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Dal 1980 · Milano · International</div>
+    <h1 data-i18n="hero_title">Il Mondo<br>è <em>Casa Tua</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Il tuo partner di fiducia per il mercato italiano ed internazionale. Dall'attico di Milano o Roma alla villa a Marbella o Ibiza.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Inizia il tuo viaggio</a>
-      <a href="#services" class="btn-secondary">I nostri servizi</a>
+      <a href="#contact" class="btn-primary" data-i18n="hero_cta1">Inizia il tuo viaggio</a>
+      <a href="#services" class="btn-secondary" data-i18n="hero_cta2">I nostri servizi</a>
     </div>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
-    Scopri
+    <span data-i18n="scroll">Scopri</span>
   </div>
 </section>
 
@@ -269,30 +276,30 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
   <div class="container">
     <div class="about-grid">
       <div>
-        <div class="section-eyebrow">Chi Siamo</div>
-        <h2 class="section-title">Oltre 40 anni di<br><em>eccellenza immobiliare</em></h2>
+        <div class="section-eyebrow" data-i18n="about_eyebrow">Chi Siamo</div>
+        <h2 class="section-title" data-i18n="about_title">Oltre 40 anni di<br><em>eccellenza immobiliare</em></h2>
         <div class="about-text">
-          <p>Dal 1980, Francesco opera a Milano con professionalità e dinamicità nel campo dell'intermediazione di immobili residenziali, commerciali e turistici, sia nella compravendita che nella locazione.</p>
-          <p>Fornisce servizi e consulenza mirate, con passione, competenza, trasparenza e doti umane che portano alla fidelizzazione dei propri clienti, certi di avere un punto di riferimento in grado di risolvere ogni problema inerente la compravendita o la locazione di un immobile.</p>
-          <p>Oggi operiamo in Italia e nelle destinazioni più interessanti d'Europa e degli Emirati Arabi, portando la stessa dedizione e professionalità che ci ha resi un punto di riferimento da oltre quattro decenni.</p>
+          <p data-i18n="about_p1">Dal 1980, Francesco opera a Milano con professionalità e dinamicità nel campo dell'intermediazione di immobili residenziali, commerciali e turistici, sia nella compravendita che nella locazione.</p>
+          <p data-i18n="about_p2">Fornisce servizi e consulenza mirate, con passione, competenza, trasparenza e doti umane che portano alla fidelizzazione dei propri clienti, certi di avere un punto di riferimento in grado di risolvere ogni problema inerente la compravendita o la locazione di un immobile.</p>
+          <p data-i18n="about_p3">Oggi operiamo in Italia e nelle destinazioni più interessanti d'Europa e degli Emirati Arabi, portando la stessa dedizione e professionalità che ci ha resi un punto di riferimento da oltre quattro decenni.</p>
         </div>
         <div class="about-signature">Francesco</div>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-num">40+</div>
-            <div class="stat-label">Anni di esperienza</div>
+            <div class="stat-label" data-i18n="stat_years">Anni di esperienza</div>
           </div>
           <div class="stat">
             <div class="stat-num">6</div>
-            <div class="stat-label">Destinazioni</div>
+            <div class="stat-label" data-i18n="stat_dest">Destinazioni</div>
           </div>
           <div class="stat">
             <div class="stat-num">∞</div>
-            <div class="stat-label">Clienti fidelizzati</div>
+            <div class="stat-label" data-i18n="stat_clients">Clienti fidelizzati</div>
           </div>
           <div class="stat">
             <div class="stat-num">6</div>
-            <div class="stat-label">Servizi integrati</div>
+            <div class="stat-label" data-i18n="stat_services">Servizi integrati</div>
           </div>
         </div>
       </div>
@@ -307,8 +314,8 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
-    <div class="section-eyebrow">I Nostri Servizi</div>
-    <h2 class="section-title">Un ecosistema<br><em>di eccellenza</em></h2>
+    <div class="section-eyebrow" data-i18n="services_eyebrow">I Nostri Servizi</div>
+    <h2 class="section-title" data-i18n="services_title">Un ecosistema<br><em>di eccellenza</em></h2>
     <div class="services-grid">
       <div class="service-card">
         <span class="service-icon">🏛</span>
@@ -359,8 +366,8 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 <!-- DESTINATIONS -->
 <section class="destinations" id="destinations">
   <div class="container">
-    <div class="section-eyebrow">Le Nostre Destinazioni</div>
-    <h2 class="section-title">Dove il mondo<br><em>è di casa</em></h2>
+    <div class="section-eyebrow" data-i18n="dest_eyebrow">Le Nostre Destinazioni</div>
+    <h2 class="section-title" data-i18n="dest_title">Dove il mondo<br><em>è di casa</em></h2>
     <div class="dest-grid">
       <div class="dest-card featured">
         <img src="https://res.cloudinary.com/dyzholfwv/image/upload/v1780257730/grattacieli_l6bnib.jpg" alt="Milano" onerror="this.style.background='#162438'">
@@ -409,28 +416,28 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 <!-- PROCESS -->
 <section class="process">
   <div class="container">
-    <div class="section-eyebrow">Come Lavoriamo</div>
-    <h2 class="section-title">Il nostro<br><em>approccio</em></h2>
+    <div class="section-eyebrow" data-i18n="process_eyebrow">Come Lavoriamo</div>
+    <h2 class="section-title" data-i18n="process_title">Il nostro<br><em>approccio</em></h2>
     <div class="process-steps">
       <div class="step">
         <div class="step-num">01</div>
-        <div class="step-title">Ascolto</div>
-        <div class="step-desc">Comprendiamo le tue esigenze, il tuo stile di vita e i tuoi obiettivi di investimento.</div>
+        <div class="step-title" data-i18n="step1_title">Ascolto</div>
+        <div class="step-desc" data-i18n="step1_desc">Comprendiamo le tue esigenze, il tuo stile di vita e i tuoi obiettivi di investimento.</div>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <div class="step-title">Selezione</div>
-        <div class="step-desc">Identifichiamo le proprietà più adatte tra la nostra ampia selezione internazionale.</div>
+        <div class="step-title" data-i18n="step2_title">Selezione</div>
+        <div class="step-desc" data-i18n="step2_desc">Identifichiamo le proprietà più adatte tra la nostra ampia selezione internazionale.</div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-title">Consulenza</div>
-        <div class="step-desc">Ti affianchiamo in ogni fase con competenza legale, fiscale e tecnica.</div>
+        <div class="step-title" data-i18n="step3_title">Consulenza</div>
+        <div class="step-desc" data-i18n="step3_desc">Ti affianchiamo in ogni fase con competenza legale, fiscale e tecnica.</div>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <div class="step-title">Risultato</div>
-        <div class="step-desc">Raggiungiamo insieme il tuo obiettivo, con trasparenza e professionalità.</div>
+        <div class="step-title" data-i18n="step4_title">Risultato</div>
+        <div class="step-desc" data-i18n="step4_desc">Raggiungiamo insieme il tuo obiettivo, con trasparenza e professionalità.</div>
       </div>
     </div>
   </div>
@@ -440,7 +447,7 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 <div class="testimonial">
   <div class="testimonial-inner">
     <div class="quote-mark">"</div>
-    <p class="quote-text">Trasformiamo i tuoi sogni in realtà. Il nostro obiettivo è superare ogni tua aspettativa, ovunque tu decida di stabilire il tuo prossimo traguardo.</p>
+    <p class="quote-text" data-i18n="quote">Trasformiamo i tuoi sogni in realtà. Il nostro obiettivo è superare ogni tua aspettativa, ovunque tu decida di stabilire il tuo prossimo traguardo.</p>
     <div class="quote-author">Francesco Russo · FR International Realty</div>
   </div>
 </div>
@@ -448,8 +455,8 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <div class="section-eyebrow">Contatti</div>
-    <h2 class="section-title">Inizia il tuo<br><em>viaggio con noi</em></h2>
+    <div class="section-eyebrow" data-i18n="contact_eyebrow">Contatti</div>
+    <h2 class="section-title" data-i18n="contact_title">Inizia il tuo<br><em>viaggio con noi</em></h2>
     <div class="contact-grid">
       <div class="contact-info">
         <div class="contact-item">
@@ -580,7 +587,162 @@ function submitForm(e){
   setTimeout(()=>msg.style.display='none', 5000);
 }
 
-// Smooth reveal on scroll
+// ── MULTILINGUAL ─────────────────────────────────
+const translations = {
+  it: {
+    nav_about: 'Chi Siamo',
+    nav_services: 'Servizi',
+    nav_destinations: 'Destinazioni',
+    nav_contact: 'Contatti',
+    nav_cta: 'Consulenza',
+    hero_eyebrow: 'Dal 1980 · Milano · International',
+    hero_title: 'Il Mondo<br>è <em>Casa Tua</em>',
+    hero_sub: 'Il tuo partner di fiducia per il mercato italiano ed internazionale. Dall\'attico di Milano o Roma alla villa a Marbella o Ibiza.',
+    hero_cta1: 'Inizia il tuo viaggio',
+    hero_cta2: 'I nostri servizi',
+    about_eyebrow: 'Chi Siamo',
+    about_title: 'Oltre 40 anni di<br><em>eccellenza immobiliare</em>',
+    about_p1: 'Dal 1980, Francesco opera a Milano con professionalità e dinamicità nel campo dell\'intermediazione di immobili residenziali, commerciali e turistici, sia nella compravendita che nella locazione.',
+    about_p2: 'Fornisce servizi e consulenza mirate, con passione, competenza, trasparenza e doti umane che portano alla fidelizzazione dei propri clienti, certi di avere un punto di riferimento in grado di risolvere ogni problema inerente la compravendita o la locazione di un immobile.',
+    about_p3: 'Oggi operiamo in Italia e nelle destinazioni più interessanti d\'Europa e degli Emirati Arabi, portando la stessa dedizione e professionalità che ci ha resi un punto di riferimento da oltre quattro decenni.',
+    stat_years: 'Anni di esperienza',
+    stat_dest: 'Destinazioni',
+    stat_clients: 'Clienti fidelizzati',
+    stat_services: 'Servizi integrati',
+    services_eyebrow: 'I Nostri Servizi',
+    services_title: 'Un ecosistema<br><em>di eccellenza</em>',
+    dest_eyebrow: 'Le Nostre Destinazioni',
+    dest_title: 'Dove il mondo<br><em>è di casa</em>',
+    process_eyebrow: 'Come Lavoriamo',
+    process_title: 'Il nostro<br><em>approccio</em>',
+    step1_title: 'Ascolto', step1_desc: 'Comprendiamo le tue esigenze, il tuo stile di vita e i tuoi obiettivi di investimento.',
+    step2_title: 'Selezione', step2_desc: 'Identifichiamo le proprietà più adatte tra la nostra ampia selezione internazionale.',
+    step3_title: 'Consulenza', step3_desc: 'Ti affianchiamo in ogni fase con competenza legale, fiscale e tecnica.',
+    step4_title: 'Risultato', step4_desc: 'Raggiungiamo insieme il tuo obiettivo, con trasparenza e professionalità.',
+    quote: 'Trasformiamo i tuoi sogni in realtà. Il nostro obiettivo è superare ogni tua aspettativa, ovunque tu decida di stabilire il tuo prossimo traguardo.',
+    contact_eyebrow: 'Contatti',
+    contact_title: 'Inizia il tuo<br><em>viaggio con noi</em>',
+    form_name: 'Nome *', form_email: 'Email *', form_phone: 'Telefono',
+    form_interest: 'Interesse', form_msg: 'Messaggio', form_send: 'Invia Richiesta',
+    form_success: '✓ Messaggio inviato! La contatteremo al più presto.',
+    int_buy: 'Acquisto immobile', int_sell: 'Vendita immobile', int_rent: 'Affitto',
+    int_inv: 'Investimento', int_pm: 'Property Management', int_other: 'Altro',
+    scroll: 'Scopri'
+  },
+  en: {
+    nav_about: 'About Us',
+    nav_services: 'Services',
+    nav_destinations: 'Destinations',
+    nav_contact: 'Contact',
+    nav_cta: 'Consultation',
+    hero_eyebrow: 'Since 1980 · Milan · International',
+    hero_title: 'The World<br>is <em>Your Home</em>',
+    hero_sub: 'Your trusted partner for the Italian and international real estate market. From a penthouse in Milan or Rome to a villa in Marbella or Ibiza.',
+    hero_cta1: 'Start your journey',
+    hero_cta2: 'Our services',
+    about_eyebrow: 'About Us',
+    about_title: 'Over 40 years of<br><em>real estate excellence</em>',
+    about_p1: 'Since 1980, Francesco has operated in Milan with professionalism and dynamism in the field of residential, commercial and tourist property brokerage, both for sale and rental.',
+    about_p2: 'He provides targeted services and consultancy, with passion, competence, transparency and human qualities that lead to customer loyalty, certain of having a point of reference capable of solving any problem related to the purchase or rental of a property.',
+    about_p3: 'Today we operate in Italy and in the most interesting destinations in Europe and the Emirates, bringing the same dedication and professionalism that has made us a benchmark for over four decades.',
+    stat_years: 'Years of experience',
+    stat_dest: 'Destinations',
+    stat_clients: 'Loyal clients',
+    stat_services: 'Integrated services',
+    services_eyebrow: 'Our Services',
+    services_title: 'An ecosystem<br><em>of excellence</em>',
+    dest_eyebrow: 'Our Destinations',
+    dest_title: 'Where the world<br><em>feels like home</em>',
+    process_eyebrow: 'How We Work',
+    process_title: 'Our<br><em>approach</em>',
+    step1_title: 'Listening', step1_desc: 'We understand your needs, your lifestyle and your investment goals.',
+    step2_title: 'Selection', step2_desc: 'We identify the most suitable properties from our wide international portfolio.',
+    step3_title: 'Consulting', step3_desc: 'We support you at every stage with legal, tax and technical expertise.',
+    step4_title: 'Result', step4_desc: 'We achieve your goal together, with transparency and professionalism.',
+    quote: 'We turn your dreams into reality. Our goal is to exceed your every expectation, wherever you decide to set your next milestone.',
+    contact_eyebrow: 'Contact',
+    contact_title: 'Start your<br><em>journey with us</em>',
+    form_name: 'Name *', form_email: 'Email *', form_phone: 'Phone',
+    form_interest: 'Interest', form_msg: 'Message', form_send: 'Send Request',
+    form_success: '✓ Message sent! We will contact you shortly.',
+    int_buy: 'Buy property', int_sell: 'Sell property', int_rent: 'Rental',
+    int_inv: 'Investment', int_pm: 'Property Management', int_other: 'Other',
+    scroll: 'Discover'
+  },
+  es: {
+    nav_about: 'Quiénes Somos',
+    nav_services: 'Servicios',
+    nav_destinations: 'Destinos',
+    nav_contact: 'Contacto',
+    nav_cta: 'Consulta',
+    hero_eyebrow: 'Desde 1980 · Milán · Internacional',
+    hero_title: 'El Mundo<br>es <em>Tu Hogar</em>',
+    hero_sub: 'Tu socio de confianza para el mercado inmobiliario italiano e internacional. Desde un ático en Milán o Roma hasta una villa en Marbella o Ibiza.',
+    hero_cta1: 'Empieza tu viaje',
+    hero_cta2: 'Nuestros servicios',
+    about_eyebrow: 'Quiénes Somos',
+    about_title: 'Más de 40 años de<br><em>excelencia inmobiliaria</em>',
+    about_p1: 'Desde 1980, Francesco opera en Milán con profesionalidad y dinamismo en el campo de la intermediación de inmuebles residenciales, comerciales y turísticos, tanto en compraventa como en alquiler.',
+    about_p2: 'Proporciona servicios y asesoramiento específicos, con pasión, competencia, transparencia y cualidades humanas que llevan a la fidelización de sus clientes.',
+    about_p3: 'Hoy operamos en Italia y en los destinos más interesantes de Europa y los Emiratos, aportando la misma dedicación y profesionalidad que nos ha convertido en referencia durante más de cuatro décadas.',
+    stat_years: 'Años de experiencia',
+    stat_dest: 'Destinos',
+    stat_clients: 'Clientes fieles',
+    stat_services: 'Servicios integrados',
+    services_eyebrow: 'Nuestros Servicios',
+    services_title: 'Un ecosistema<br><em>de excelencia</em>',
+    dest_eyebrow: 'Nuestros Destinos',
+    dest_title: 'Donde el mundo<br><em>es tu hogar</em>',
+    process_eyebrow: 'Cómo Trabajamos',
+    process_title: 'Nuestro<br><em>enfoque</em>',
+    step1_title: 'Escucha', step1_desc: 'Comprendemos tus necesidades, tu estilo de vida y tus objetivos de inversión.',
+    step2_title: 'Selección', step2_desc: 'Identificamos las propiedades más adecuadas de nuestra amplia cartera internacional.',
+    step3_title: 'Asesoría', step3_desc: 'Te acompañamos en cada etapa con experiencia legal, fiscal y técnica.',
+    step4_title: 'Resultado', step4_desc: 'Alcanzamos juntos tu objetivo, con transparencia y profesionalidad.',
+    quote: 'Convertimos tus sueños en realidad. Nuestro objetivo es superar cada una de tus expectativas, dondequiera que decidas establecer tu próximo hito.',
+    contact_eyebrow: 'Contacto',
+    contact_title: 'Empieza tu<br><em>viaje con nosotros</em>',
+    form_name: 'Nombre *', form_email: 'Email *', form_phone: 'Teléfono',
+    form_interest: 'Interés', form_msg: 'Mensaje', form_send: 'Enviar Solicitud',
+    form_success: '✓ ¡Mensaje enviado! Le contactaremos en breve.',
+    int_buy: 'Comprar inmueble', int_sell: 'Vender inmueble', int_rent: 'Alquiler',
+    int_inv: 'Inversión', int_pm: 'Property Management', int_other: 'Otro',
+    scroll: 'Descubrir'
+  }
+};
+
+let currentLang = 'it';
+
+function setLang(lang){
+  currentLang = lang;
+  const t = translations[lang];
+
+  // Update lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update form labels and options
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(t[key]) el.placeholder = t[key];
+  });
+
+  // Update html lang
+  document.documentElement.lang = lang;
+
+  // Update form success message language
+  window._currentLang = lang;
+}
+
+// Initialize
+setLang('it');
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(el=>{
     if(el.isIntersecting){
