@@ -38,10 +38,10 @@ nav.scrolled{background:rgba(10,21,32,.95);backdrop-filter:blur(12px);border-bot
 .nav-links a:hover{color:var(--gold)}
 .nav-cta{background:transparent;border:1px solid var(--border2);color:var(--gold);padding:9px 22px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
 .nav-cta:hover{background:var(--gold);color:var(--navy)}
-.lang-sel{display:flex;gap:4px;align-items:center;margin-left:1rem}
-.lang-btn{background:transparent;border:2px solid transparent;padding:3px;font-size:20px;cursor:pointer;transition:all .2s;border-radius:4px;line-height:1;opacity:.55}
-.lang-btn:hover{opacity:1}
-.lang-btn.active{border-color:var(--gold);opacity:1}
+.lang-sel{display:flex;gap:4px;align-items:center;margin-left:1rem;background:rgba(255,255,255,.06);border-radius:4px;padding:3px}
+.lang-btn{background:transparent;border:none;color:var(--muted);padding:5px 9px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;cursor:pointer;transition:all .2s;border-radius:3px}
+.lang-btn:hover{color:var(--gold);background:rgba(201,168,76,.1)}
+.lang-btn.active{background:var(--gold);color:var(--navy)}
 
 /* ── HERO ───────────────────────────────── */
 .hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden}
@@ -222,9 +222,9 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
     <a href="#contact" data-i18n="nav_contact">Contatti</a>
     <a href="#contact" class="nav-cta" data-i18n="nav_cta">Consulenza</a>
     <div class="lang-sel">
-      <button class="lang-btn active" onclick="setLang('it')" title="Italiano">🇮🇹</button>
-      <button class="lang-btn" onclick="setLang('en')" title="English">🇬🇧</button>
-      <button class="lang-btn" onclick="setLang('es')" title="Español">🇪🇸</button>
+      <button class="lang-btn active" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
     </div>
   </div>
   <div class="nav-mob" onclick="toggleMenu()" id="navMob">
