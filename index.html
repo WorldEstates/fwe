@@ -27,21 +27,23 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);font
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.2}
 
 /* ── NAVBAR ─────────────────────────────── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 3rem;height:72px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 1.5rem;height:72px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
 nav.scrolled{background:rgba(10,21,32,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);letter-spacing:.08em}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--gold);letter-spacing:.08em;line-height:1}
 .nav-logo span{color:var(--white);font-weight:200}
-.nav-tagline{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--border2);padding-left:14px}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-tagline{font-size:8px;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;gap:1px}
+.nav-tagline strong{color:var(--text);font-weight:400;font-size:9px;letter-spacing:.1em}
+.nav-links{display:flex;gap:1.2rem;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
-.nav-cta{background:transparent;border:1px solid var(--border2);color:var(--gold);padding:9px 22px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
+.nav-cta{background:transparent;border:1px solid var(--border2);color:var(--gold);padding:7px 14px;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
 .nav-cta:hover{background:var(--gold);color:var(--navy)}
-.lang-sel{display:flex;gap:4px;align-items:center;margin-left:1rem;background:rgba(255,255,255,.06);border-radius:4px;padding:3px}
-.lang-btn{background:transparent;border:none;color:var(--muted);padding:5px 9px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;cursor:pointer;transition:all .2s;border-radius:3px}
-.lang-btn:hover{color:var(--gold);background:rgba(201,168,76,.1)}
-.lang-btn.active{background:var(--gold);color:var(--navy)}
+.lang-sel{display:flex;gap:6px;align-items:center;margin-left:1rem}
+.lang-btn{background:transparent;border:2px solid transparent;padding:3px 4px;cursor:pointer;transition:all .2s;border-radius:4px;display:flex;align-items:center;opacity:.6}
+.lang-btn:hover{opacity:1}
+.lang-btn.active{border-color:var(--gold);opacity:1}
+.lang-btn img{display:block;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 
 /* ── HERO ───────────────────────────────── */
 .hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden}
@@ -212,19 +214,26 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 <!-- NAVBAR -->
 <nav id="navbar">
   <a href="#" class="nav-brand">
-    <div class="nav-logo">FR<span></span></div>
-    <div class="nav-tagline">Francesco Russo International Realty</div>
+    <div>
+      <div class="nav-logo">FR</div>
+      <div class="nav-tagline">Francesco Russo International Realty</div>
+    </div>
   </a>
   <div class="nav-links">
     <a href="#about" data-i18n="nav_about">Chi Siamo</a>
     <a href="#services" data-i18n="nav_services">Servizi</a>
     <a href="#destinations" data-i18n="nav_destinations">Destinazioni</a>
     <a href="#contact" data-i18n="nav_contact">Contatti</a>
-    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Consulenza</a>
     <div class="lang-sel">
-      <button class="lang-btn active" onclick="setLang('it')">IT</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn active" onclick="setLang('it')" title="Italiano">
+        <img src="https://flagcdn.com/w20/it.png" width="20" height="14" alt="IT">
+      </button>
+      <button class="lang-btn" onclick="setLang('en')" title="English">
+        <img src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="EN">
+      </button>
+      <button class="lang-btn" onclick="setLang('es')" title="Español">
+        <img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="ES">
+      </button>
     </div>
   </div>
   <div class="nav-mob" onclick="toggleMenu()" id="navMob">
@@ -245,7 +254,7 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
   <div class="hero-bg"></div>
   <div class="hero-pattern"></div>
   <div class="hero-overlay"></div>
-  <img class="hero-img" src="https://res.cloudinary.com/dyzholfwv/image/upload/v1780253554/fotogroup_ivpekz.png" alt="FR International Realty" style="opacity:.55;object-position:center" onerror="this.style.display='none'">
+  <img class="hero-img" src="https://res.cloudinary.com/dyzholfwv/image/upload/v1780253554/fotogroup_ivpekz.png" alt="FR International Realty" style="opacity:.5;object-fit:contain;object-position:center right;background:transparent" onerror="this.style.display='none'">
   <div class="hero-content">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Dal 1980 · Milano · International</div>
     <h1 data-i18n="hero_title">Il Mondo<br>è <em>Casa Tua</em></h1>
