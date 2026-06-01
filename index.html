@@ -218,6 +218,17 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
     <div>
       <div class="nav-logo">FR</div>
       <div class="nav-tagline">Francesco Russo International Realty</div>
+      <div style="display:flex;gap:5px;margin-top:4px">
+        <button onclick="setLang('it')" style="background:none;border:none;cursor:pointer;padding:1px;opacity:.6;transition:opacity .2s" id="flagIt">
+          <img src="https://flagcdn.com/w20/it.png" width="20" height="13" alt="IT" style="border-radius:2px;display:block">
+        </button>
+        <button onclick="setLang('en')" style="background:none;border:none;cursor:pointer;padding:1px;opacity:.6;transition:opacity .2s" id="flagEn">
+          <img src="https://flagcdn.com/w20/gb.png" width="20" height="13" alt="EN" style="border-radius:2px;display:block">
+        </button>
+        <button onclick="setLang('es')" style="background:none;border:none;cursor:pointer;padding:1px;opacity:.6;transition:opacity .2s" id="flagEs">
+          <img src="https://flagcdn.com/w20/es.png" width="20" height="13" alt="ES" style="border-radius:2px;display:block">
+        </button>
+      </div>
     </div>
   </a>
   <div class="nav-links">
@@ -225,17 +236,6 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
     <a href="#services" data-i18n="nav_services">Servizi</a>
     <a href="#destinations" data-i18n="nav_destinations">Destinazioni</a>
     <a href="#contact" data-i18n="nav_contact">Contatti</a>
-    <div class="lang-sel">
-      <button class="lang-btn active" onclick="setLang('it')" title="Italiano">
-        <img src="https://flagcdn.com/w20/it.png" width="20" height="14" alt="IT">
-      </button>
-      <button class="lang-btn" onclick="setLang('en')" title="English">
-        <img src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="EN">
-      </button>
-      <button class="lang-btn" onclick="setLang('es')" title="Español">
-        <img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="ES">
-      </button>
-    </div>
   </div>
   <div class="nav-mob" onclick="toggleMenu()" id="navMob">
     <span></span><span></span><span></span>
@@ -244,10 +244,21 @@ footer{background:var(--navy);border-top:1px solid var(--border);padding:3rem 0}
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-  <a href="#about" onclick="toggleMenu()">Chi Siamo</a>
-  <a href="#services" onclick="toggleMenu()">Servizi</a>
-  <a href="#destinations" onclick="toggleMenu()">Destinazioni</a>
-  <a href="#contact" onclick="toggleMenu()">Contatti</a>
+  <a href="#about" onclick="toggleMenu()" data-i18n="nav_about">Chi Siamo</a>
+  <a href="#services" onclick="toggleMenu()" data-i18n="nav_services">Servizi</a>
+  <a href="#destinations" onclick="toggleMenu()" data-i18n="nav_destinations">Destinazioni</a>
+  <a href="#contact" onclick="toggleMenu()" data-i18n="nav_contact">Contatti</a>
+  <div style="display:flex;gap:16px;margin-top:1rem">
+    <button class="lang-btn" onclick="setLang('it');toggleMenu()" id="mobLangIt" style="opacity:1;border:2px solid var(--gold);padding:6px 8px">
+      <img src="https://flagcdn.com/w40/it.png" width="36" height="24" alt="IT" style="border-radius:3px">
+    </button>
+    <button class="lang-btn" onclick="setLang('en');toggleMenu()" id="mobLangEn" style="opacity:.6;border:2px solid transparent;padding:6px 8px">
+      <img src="https://flagcdn.com/w40/gb.png" width="36" height="24" alt="EN" style="border-radius:3px">
+    </button>
+    <button class="lang-btn" onclick="setLang('es');toggleMenu()" id="mobLangEs" style="opacity:.6;border:2px solid transparent;padding:6px 8px">
+      <img src="https://flagcdn.com/w40/es.png" width="36" height="24" alt="ES" style="border-radius:3px">
+    </button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -727,9 +738,10 @@ function setLang(lang){
   currentLang = lang;
   const t = translations[lang];
 
-  // Update lang buttons
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  // Update flag buttons under FR
+  ['it','en','es'].forEach(l => {
+    const flag = document.getElementById('flag'+l.charAt(0).toUpperCase()+l.slice(1));
+    if(flag) flag.style.opacity = l===lang ? '1' : '.5';
   });
 
   // Update all data-i18n elements
